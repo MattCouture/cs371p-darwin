@@ -19,7 +19,7 @@ class Creature {
    string hopperProgram[2];
    string roverProgram[11];
    string trapProgram[5];
-   string bestProgram[5];
+   string bestProgram[13];
 
    // West = 0, North = 1, East = 2, South = 4
 
@@ -40,8 +40,11 @@ class Creature {
 //     trapProgram
        trapProgram[0] = "if_enemy 3"; trapProgram[1] = "left"; trapProgram[2] = "go 0"; trapProgram[3] = "infect"; trapProgram[4] = "go 0";
 //     bestProgram
-       bestProgram[0] = "if_enemy 3"; bestProgram[1] = "left"; bestProgram[2] = "go 0"; bestProgram[3] = "infect"; bestProgram[4] = "go 0";
-     
+//       bestProgram[0] = "if_enemy 3"; bestProgram[1] = "left"; bestProgram[2] = "go 0"; bestProgram[3] = "infect"; bestProgram[4] = "go 0";
+       bestProgram[0] = "if_enemy 11"; bestProgram[1] = "if_wall 4"; bestProgram[2] = "if_empty 9"; bestProgram[3] = "go 7"; bestProgram[4] = "if_random 7"; 
+       bestProgram[5] = "left"; bestProgram[6] = "go 0"; bestProgram[7] = "right"; bestProgram[8] = "go 0"; bestProgram[9] = "hop"; bestProgram[10] = "go 0";
+       bestProgram[11] = "infect"; bestProgram[12] = "go 0";
+
      }
 
    string turn() {
