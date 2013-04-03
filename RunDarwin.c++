@@ -31,6 +31,8 @@ doxygen Doxyfile
 #include <iostream> // cout, endl
 #include <stdexcept> // invalid_argument, out_of_range
 
+#include "Darwin.c++"
+
 // ----
 // main
 // ----
@@ -93,6 +95,32 @@ int main () {
 
     try {
         cout << "*** Darwin 8x8 ***" << endl;
+
+        World w = World(8, 8);
+        w.addCreature("Food", 2, 0, 0);
+        w.addCreature("Hopper", 1, 3, 3);
+        w.addCreature("Hopper", 2, 3, 4);
+        w.addCreature("Hopper", 3, 4, 4);
+        w.addCreature("Hopper", 0, 4, 3);
+        w.addCreature("Food", 1, 7, 7);
+        
+        cout << "Turn = 0." << endl;
+        w.print();
+        w.takeTurn();
+        cout << "Turn = 1." << endl;
+        w.print();
+        w.takeTurn(); 
+        cout << "Turn = 2." << endl;
+        w.print();
+        w.takeTurn();
+        cout << "Turn = 3." << endl;
+        w.print();
+        w.takeTurn();
+        cout << "Turn = 4." << endl;
+        w.print();
+        w.takeTurn();
+        cout << "Turn = 5." << endl;
+        w.print();
         /*
 8x8 Darwin
 Food, facing east, at (0, 0)
@@ -110,6 +138,7 @@ Print every grid.
     catch (const out_of_range&) {
         assert(false);}
 
+
     // ----------
     // darwin 7x9
     // ----------
@@ -117,6 +146,32 @@ Print every grid.
     try {
         cout << "*** Darwin 7x9 ***" << endl;
         srand(0);
+
+        World w2 = World(7, 9);
+        w2.addCreature("Trap", 3, 0, 0);
+        w2.addCreature("Hopper", 2, 3, 2);
+        w2.addCreature("Rover", 1, 5, 4);
+        w2.addCreature("Trap", 0, 6, 8);
+       
+        cout << "Turn = 0." << endl;
+        w2.print();
+        w2.takeTurn();
+        cout << "Turn = 1." << endl;
+        w2.print();
+        w2.takeTurn();
+        cout << "Turn = 2." << endl;
+        w2.print();
+        w2.takeTurn();
+        cout << "Turn = 3." << endl;
+        w2.print();
+        w2.takeTurn();
+        cout << "Turn = 4." << endl;
+        w2.print();
+        w2.takeTurn();
+        cout << "Turn = 5." << endl;
+        w2.print();
+
+
         /*
 7x9 Darwin
 Trap, facing south, at (0, 0)
@@ -131,6 +186,17 @@ Print every grid.
         assert(false);}
     catch (const out_of_range&) {
         assert(false);}
+/*
+     World w = World(3, 3);
+     w.addCreature("Rover", 0, 2, 0);
+     for(int y = 0; y < 10; ++y) {
+        cout << "Turn " << y+1 <<endl;
+        w.takeTurn();}
+     w.print();
+*/
+
+
+
 
     // ------------
     // darwin 72x72
@@ -140,6 +206,47 @@ Print every grid.
     try {
         cout << "*** Darwin 72x72 without Best ***" << endl;
         srand(0);
+        World w3 = World(72, 72);
+        int i, d, r, c;
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w3.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w3.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w3.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w3.addCreature("Trap", d, r, c);
+        }
+        cout << "Turn = 0." << endl;
+        w3.print();
+        for(int x = 1; x < 1001; ++x) {
+          w3.takeTurn();
+          if(x % 100 == 0) {
+            cout << "Turn = " << x << "." << endl;
+            w3.print();
+          }
+        }
+
+
         /*
 Randomly place the following creatures facing randomly.
 Call rand(), mod it with 5184 (72x72), and use that for the position
@@ -154,6 +261,7 @@ Do that for each kind of creature.
 Simulate 1000 moves.
 Print every 100th grid.
 */
+
         }
     catch (const invalid_argument&) {
         assert(false);}
@@ -168,6 +276,53 @@ Print every 100th grid.
     try {
         cout << "*** Darwin 72x72 with Best ***" << endl;
         srand(0);
+        World w4 = World(72, 72);
+        int i, d, r, c;
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w4.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w4.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w4.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w4.addCreature("Trap", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 5184;
+          d = rand() % 4;
+          r = i / 72;
+          c = i % 72;
+          w4.addCreature("Best", d, r, c);
+        }
+        cout << "Turn = 0." << endl;
+        w4.print();
+        for(int x = 1; x < 1001; ++x) {
+          w4.takeTurn();
+          if(x % 100 == 0) {
+            cout << "Turn = " << x << "." << endl;
+            w4.print();
+          }
+        }
+
         /*
 Randomly place the following creatures facing randomly.
 Call rand(), mod it with 5184 (72x72), and use that for the position
