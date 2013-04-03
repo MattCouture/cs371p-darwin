@@ -268,6 +268,284 @@ Print every 100th grid.
     catch (const out_of_range&) {
         assert(false);}
 
+
+    // ----------
+    // darwin 3x3
+    // ---------- 
+    try {
+    World w = World(10, 10);
+    w.addCreature("Trap", 0, 1, 1);
+    w.addCreature("Rover", 1, 2, 1);
+    cout << "Turn = 0." << endl;
+    w.print();
+    for(int x = 0; x < 10; ++x) {
+      w.takeTurn();} 
+    cout << "Turn = 10." << endl;
+    w.print();
+
+      }
+    catch (const invalid_argument&) {
+        assert(false);}
+    catch (const out_of_range&) {
+        assert(false);}
+
+    // ----------
+    // darwin 10x10
+    // ----------
+    try {
+    World w = World(10, 10);
+    w.addCreature("Trap", 0, 1, 1);
+    w.addCreature("Rover", 1, 2, 1);
+    w.addCreature("Food", 3, 5, 5);
+    w.addCreature("Food", 3, 4, 4);
+    w.addCreature("Food", 3, 3, 3);
+    w.addCreature("Food", 3, 6, 6);
+    w.addCreature("Food", 3, 7, 7);
+    w.addCreature("Food", 3, 8, 8);
+    cout << "Turn = 0." << endl;
+    w.print();
+    for(int x = 0; x < 10; ++x) {
+      w.takeTurn();}
+    cout << "Turn = 10." << endl;
+    w.print();
+
+      }
+    catch (const invalid_argument&) {
+        assert(false);}
+    catch (const out_of_range&) {
+        assert(false);}
+
+    // ----------
+    // darwin 20x20
+    // ----------
+    try {
+      World w = World(20, 20);
+      srand(0);
+        int i, d, r, c;
+        for(int y = 0; y < 3; ++y) {
+          i = rand() % 400;
+          d = rand() % 4;
+          r = i / 20;
+          c = i % 20;
+          w.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 3; ++y) {
+          i = rand() % 400;
+          d = rand() % 4;
+          r = i / 20;
+          c = i % 20;
+          w.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 3; ++y) {
+          i = rand() % 400;
+          d = rand() % 4;
+          r = i / 20;
+          c = i % 20;
+          w.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 3; ++y) {
+          i = rand() % 400;
+          d = rand() % 4;
+          r = i / 20;
+          c = i % 20;
+          w.addCreature("Trap", d, r, c);
+        }
+        for(int y = 0; y < 3; ++y) {
+          i = rand() % 400;
+          d = rand() % 4;
+          r = i / 20;
+          c = i % 20;
+          w.addCreature("Best", d, r, c);
+        }
+        cout << "Turn = 0." << endl;
+        w.print();
+        for(int x = 1; x < 51; ++x) {
+          w.takeTurn();
+        }
+        cout << "Turn = 50." << endl;
+        w.print();
+
+      }
+    catch (const invalid_argument&) {
+        assert(false);}
+    catch (const out_of_range&) {
+        assert(false);}
+
+
+    // ----------
+    // darwin 30x30
+    // ----------
+    try {
+      World w = World(30, 30);
+      srand(0);
+        int i, d, r, c;
+        for(int y = 0; y < 5; ++y) {
+          i = rand() % 900;
+          d = rand() % 4;
+          r = i / 30;
+          c = i % 30;
+          w.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 5; ++y) {
+          i = rand() % 900;
+          d = rand() % 4;
+          r = i / 30;
+          c = i % 30;
+          w.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 5; ++y) {
+          i = rand() % 900;
+          d = rand() % 4;
+          r = i / 30;
+          c = i % 30;
+          w.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 5; ++y) {
+          i = rand() % 900;
+          d = rand() % 4;
+          r = i / 30;
+          c = i % 30;
+          w.addCreature("Trap", d, r, c);
+        }
+        for(int y = 0; y < 5; ++y) {
+          i = rand() % 900;
+          d = rand() % 4;
+          r = i / 30;
+          c = i % 30;
+          w.addCreature("Best", d, r, c);
+        }
+         cout << "Turn = 0." << endl;
+        w.print();
+        for(int x = 1; x < 51; ++x) {
+          w.takeTurn();
+        }
+        cout << "Turn = 50." << endl;
+        w.print();
+
+      }
+    catch (const invalid_argument&) {
+        assert(false);}
+    catch (const out_of_range&) {
+        assert(false);}
+
+
+
+
+    // ----------
+    // darwin 40x40
+    // ----------
+
+    try {
+      World w = World(40, 40);
+      srand(0);
+        int i, d, r, c;
+        for(int y = 0; y < 8; ++y) {
+          i = rand() % 1600;
+          d = rand() % 4;
+          r = i / 40;
+          c = i % 40;
+          w.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 8; ++y) {
+          i = rand() % 1600;
+          d = rand() % 4;
+          r = i / 40;
+          c = i % 40;
+          w.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 8; ++y) {
+          i = rand() % 1600;
+          d = rand() % 4;
+          r = i / 40;
+          c = i % 40;
+          w.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 8; ++y) {
+          i = rand() % 1600;
+          d = rand() % 4;
+          r = i / 40;
+          c = i % 40;
+          w.addCreature("Trap", d, r, c);
+        }
+        for(int y = 0; y < 8; ++y) {
+          i = rand() % 1600;
+          d = rand() % 4;
+          r = i / 40;
+          c = i % 40;
+          w.addCreature("Best", d, r, c);
+        }
+       cout << "Turn = 0." << endl;
+        w.print();
+        for(int x = 1; x < 51; ++x) {
+          w.takeTurn();
+        }
+        cout << "Turn = 50." << endl;
+        w.print();
+
+      }
+    catch (const invalid_argument&) {
+        assert(false);}
+    catch (const out_of_range&) {
+        assert(false);}
+
+    // ----------
+    // darwin 50x50
+    // ----------
+    try {
+      World w = World(50, 50);
+      srand(0);
+        int i, d, r, c;
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 2500;
+          d = rand() % 4;
+          r = i / 50;
+          c = i % 50;
+          w.addCreature("Food", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 2500;
+          d = rand() % 4;
+          r = i / 50;
+          c = i % 50;
+          w.addCreature("Hopper", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 2500;
+          d = rand() % 4;
+          r = i / 50;
+          c = i % 50;
+          w.addCreature("Rover", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 2500;
+          d = rand() % 4;
+          r = i / 50;
+          c = i % 50;
+          w.addCreature("Trap", d, r, c);
+        }
+        for(int y = 0; y < 10; ++y) {
+          i = rand() % 2500;
+          d = rand() % 4;
+          r = i / 50;
+          c = i % 50;
+          w.addCreature("Best", d, r, c);
+        }
+        cout << "Turn = 0." << endl;
+        w.print();
+        for(int x = 1; x < 51; ++x) {
+          w.takeTurn();
+        }
+        cout << "Turn = 50." << endl;
+        w.print();
+        }
+
+        catch (const invalid_argument&) {
+          assert(false);}
+        catch (const out_of_range&) {
+          assert(false);}
+
+
+
     // ------------
     // darwin 72x72
     // with best
@@ -322,6 +600,7 @@ Print every 100th grid.
             w4.print();
           }
         }
+     
 
         /*
 Randomly place the following creatures facing randomly.
